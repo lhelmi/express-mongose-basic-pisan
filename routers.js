@@ -54,12 +54,14 @@ routers.get('/product/filter', async (req, res) => {
 routers.post('/product', async (req, res) => {
     try {
         const { name, price, stock, status } = req.body;
+        // const { name, price, stock, status, sequenceId } = req.body;
 
         const product = await Product.create({
             name : name,
             price : price,
             status : status,
-            stock : stock
+            stock : stock,
+            // sequenceId : sequenceId
         });
 
         res.status(201).send({
